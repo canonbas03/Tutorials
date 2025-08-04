@@ -46,9 +46,9 @@
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "MVCTutorial\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MVCTutorial\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "MVCTutorial\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-04T19:40:05.079Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "MVCTutorial\\Views\\Employees\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-04T19:16:46.809Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T19:16:46.809Z"
             },
             {
               "$type": "Document",
@@ -112,8 +111,7 @@
               "RelativeToolTip": "MVCTutorial\\Data\\EmployeeContext.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T17:45:11.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T17:45:11.367Z"
             },
             {
               "$type": "Document",
@@ -125,8 +123,7 @@
               "RelativeToolTip": "MVCTutorial\\Models\\Employee.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T17:41:01.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T17:41:01.25Z"
             }
           ]
         }
