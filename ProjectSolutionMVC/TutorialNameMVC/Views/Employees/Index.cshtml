@@ -1,9 +1,6 @@
-﻿@model IEnumerable<MVCTutorial.Models.Employee>
+﻿@model IEnumerable<TutorialNameMVC.Models.Employee>
 
 <h1>Employees</h1>
-<p>
-    <a asp-action="Create" class="btn btn-success">+ Create New Employee</a>
-</p>
 
 <table class="table">
     <thead>
@@ -19,7 +16,7 @@
             <tr>
                 <td>@emp.Id</td>
                 <td>@emp.Name</td>
-                <td>@emp.Salary€</td>
+                <td>@emp.Salary</td>
             </tr>
         }
     </tbody>

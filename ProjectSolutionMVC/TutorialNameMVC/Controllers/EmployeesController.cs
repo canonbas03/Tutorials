@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCTutorial.Data;
-using MVCTutorial.Models;
 using Microsoft.EntityFrameworkCore;
+using TutorialNameMVC.Data;
+using TutorialNameMVC.Models;
 
-namespace MVCTutorial.Controllers
+namespace TutorialNameMVC.Controllers
 {
     public class EmployeesController : Controller
     {
@@ -42,4 +42,3 @@ namespace MVCTutorial.Controllers
         }
     }
 }
-

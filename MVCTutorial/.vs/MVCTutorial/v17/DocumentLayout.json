@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\data\\employeecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\data\\employeecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\data\\employeecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\data\\employeecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|solutionrelative:mvctutorial\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F00148A3-D79D-44A6-B7DE-FB4C8C1C641B}|MVCTutorial\\MVCTutorial.csproj|c:\\users\\monster\\desktop\\tutorial mvc\\tutorials\\mvctutorial\\mvctutorial\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -38,48 +42,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MVCTutorial\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml*",
-              "RelativeToolTip": "MVCTutorial\\Views\\Shared\\_Layout.cshtml*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAdAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Create.cshtml",
+              "RelativeDocumentMoniker": "MVCTutorial\\Views\\Employees\\Create.cshtml",
+              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Create.cshtml*",
+              "RelativeToolTip": "MVCTutorial\\Views\\Employees\\Create.cshtml*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-04T19:40:05.079Z",
+              "WhenOpened": "2025-08-05T09:17:25.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Index.cshtml",
-              "RelativeDocumentMoniker": "MVCTutorial\\Views\\Employees\\Index.cshtml",
-              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Index.cshtml",
-              "RelativeToolTip": "MVCTutorial\\Views\\Employees\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MVCTutorial\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MVCTutorial\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-04T19:16:46.809Z"
+              "WhenOpened": "2025-08-04T19:40:05.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Index.cshtml",
+              "RelativeDocumentMoniker": "MVCTutorial\\Views\\Employees\\Index.cshtml",
+              "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Views\\Employees\\Index.cshtml*",
+              "RelativeToolTip": "MVCTutorial\\Views\\Employees\\Index.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-04T19:16:46.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "MVCTutorial\\Controllers\\EmployeesController.cs",
               "ToolTip": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "MVCTutorial\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwBcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAmwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T19:12:58.919Z"
+              "WhenOpened": "2025-08-04T19:12:58.919Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Program.cs",
               "RelativeDocumentMoniker": "MVCTutorial\\Program.cs",
@@ -87,11 +105,12 @@
               "RelativeToolTip": "MVCTutorial\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T19:04:26.208Z"
+              "WhenOpened": "2025-08-04T19:04:26.208Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\appsettings.json",
               "RelativeDocumentMoniker": "MVCTutorial\\appsettings.json",
@@ -103,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "EmployeeContext.cs",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Data\\EmployeeContext.cs",
               "RelativeDocumentMoniker": "MVCTutorial\\Data\\EmployeeContext.cs",
@@ -115,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\MONSTER\\Desktop\\Tutorial MVC\\Tutorials\\MVCTutorial\\MVCTutorial\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "MVCTutorial\\Models\\Employee.cs",
