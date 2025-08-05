@@ -31,9 +31,9 @@ namespace MVCTutorial.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Employee employee, IFormFile photo)
+        public async Task<IActionResult> Create(Employee employee, IFormFile? photo)
         {
-            ModelState.Remove("PhotoPath");
+           // ModelState.Remove("Photo");
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach (var error in errors)
             {

@@ -1,4 +1,6 @@
-﻿namespace MVCTutorial.Models
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace MVCTutorial.Models
 {
     public class Employee
     {
@@ -7,6 +9,7 @@
         public decimal Salary { get; set; }
 
         // Path to employee image
+        [BindNever]
         public string? PhotoPath { get; set; }
     }
 }
