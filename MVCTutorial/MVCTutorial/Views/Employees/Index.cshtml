@@ -8,7 +8,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Photo</th>
             <th>Name</th>
             <th>Salary</th>
         </tr>
@@ -17,10 +17,17 @@
         @foreach (var emp in Model)
         {
             <tr>
-                <td>@emp.Id</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(emp.PhotoPath))
+                    {
+                        <img src="@emp.PhotoPath" alt="Employee Photo" style="width:50px;height:50px;object-fit:cover;" />
+                    }
+                </td>
                 <td>@emp.Name</td>
-                <td>@emp.Salary€</td>
+                <td>@emp.Salary</td>
             </tr>
         }
     </tbody>
+
 </table>
+
