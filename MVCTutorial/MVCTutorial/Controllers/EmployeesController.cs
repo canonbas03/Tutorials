@@ -82,58 +82,55 @@ namespace MVCTutorial.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Employee employee, IFormFile? photo)
         {
-            if (id != employee.Id)
-            {
-                return NotFound();
-            }
+            // Manually get removePhoto from form data as string
+            var removePhotoStr = Request.Form["removePhoto"].FirstOrDefault();
+            bool removePhoto = !string.IsNullOrEmpty(removePhotoStr) && removePhotoStr.ToLower() == "on";
+            //bool removePhoto = !string.IsNullOrEmpty(removePhotoStr) && (removePhotoStr.ToLower() == "true" || removePhotoStr == "on");
+
+            // Or better:
+            // bool removePhoto = Request.Form["removePhoto"] == "on";
 
             if (ModelState.IsValid)
             {
-                try
+                var existingEmployee = await _context.Employees.FindAsync(id);
+                if (existingEmployee == null)
+                    return NotFound();
+
+                // Update fields
+                existingEmployee.Name = employee.Name;
+                existingEmployee.Salary = employee.Salary;
+
+                // Handle photo removal or replacement
+                if (removePhoto)
                 {
-                    // Handle photo update
-                    if (photo != null && photo.Length > 0)
-                    {
-                        var fileName = Path.GetFileName(photo.FileName);
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/employees", fileName);
-
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await photo.CopyToAsync(stream);
-                        }
-
-                        employee.PhotoPath = "/images/employees/" + fileName;
-                    }
-                    else
-                    {
-                        // Keep existing photo if no new photo uploaded
-                        var existingEmployee = await _context.Employees.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
-                        employee.PhotoPath = existingEmployee?.PhotoPath;
-                    }
-
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
+                    existingEmployee.PhotoPath = "/images/employees/userPhoto.png";
                 }
-                catch (DbUpdateConcurrencyException)
+                else if (photo != null && photo.Length > 0)
                 {
-                    if (!_context.Employees.Any(e => e.Id == employee.Id))
+                    var fileName = Path.GetFileName(photo.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/employees/", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        return NotFound();
+                        await photo.CopyToAsync(stream);
                     }
-                    else
-                    {
-                        throw;
-                    }
+
+                    existingEmployee.PhotoPath = "/images/employees/" + fileName;
                 }
+
+                _context.Update(existingEmployee);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(employee);
         }
+
+
 
 
     }
