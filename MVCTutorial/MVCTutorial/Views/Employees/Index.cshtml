@@ -25,6 +25,10 @@
                 </td>
                 <td>@emp.Name</td>
                 <td>@emp.Salary</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+
             </tr>
         }
     </tbody>
