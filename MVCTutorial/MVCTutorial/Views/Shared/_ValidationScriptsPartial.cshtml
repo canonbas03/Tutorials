@@ -1,2 +1,13 @@
 ﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    // Override jQuery validator to accept comma as decimal separator
+    $.validator.methods.number = function (value, element) {
+        // Allow empty (so required works separately)
+        if (this.optional(element)) {
+            return true;
+        }
+        // Match numbers like 123,45 or 123
+        return /^-?\d+(,\d+)?$/.test(value);
+    };
+</script>
