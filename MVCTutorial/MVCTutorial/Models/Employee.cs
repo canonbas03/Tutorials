@@ -14,6 +14,6 @@ namespace MVCTutorial.Models
 
         // New foreign key
         public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public Department Department { get; set; } // Navigation property
     }
 }

@@ -179,7 +179,10 @@ namespace MVCTutorial.Controllers
         // GET: Employees/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
+            //var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
+            var employee = await _context.Employees
+       .Include(e => e.Department)  // Include the related Department data
+       .FirstOrDefaultAsync(e => e.Id == id);
 
             if (employee == null)
             {

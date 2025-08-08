@@ -16,6 +16,18 @@
         </p>
     </div>
 </div>
+<div>
+    <h4>Department Info</h4>
+    @if (Model.Department != null)
+    {
+        <p><strong>Name:</strong> @Model.Department.Name</p>
+        <p><strong>Location:</strong> @Model.Department.Location</p>
+    }
+    else
+    {
+        <p>No department assigned.</p>
+    }
+</div>
 
 <br />
 
