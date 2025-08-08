@@ -25,7 +25,7 @@ namespace MVCTutorial.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name", "Location");
+            ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name");
             return View();
         }
 
@@ -35,12 +35,17 @@ namespace MVCTutorial.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Employee employee, IFormFile? photo)
         {
-           // ModelState.Remove("Photo");
+            // Log ModelState errors if any
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             foreach (var error in errors)
             {
-                Console.WriteLine(error.ErrorMessage);
+                Console.WriteLine($"ModelState error: {error.ErrorMessage}");
             }
+
+            // Log the received DepartmentId
+            Console.WriteLine($"Received DepartmentId: {employee.DepartmentId}");
+
+            
 
             if (ModelState.IsValid)
             {
@@ -65,6 +70,7 @@ namespace MVCTutorial.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Departments = new SelectList(_context.Departments.ToList(), "DepartmentId", "Name", employee.DepartmentId);
             return View(employee);
         }
 
@@ -106,6 +112,8 @@ namespace MVCTutorial.Controllers
                 // Update fields
                 existingEmployee.Name = employee.Name;
                 existingEmployee.Salary = employee.Salary;
+                existingEmployee.DepartmentId = employee.DepartmentId;
+
 
                 // Handle photo removal or replacement
                 if (removePhoto)
@@ -129,7 +137,7 @@ namespace MVCTutorial.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name", employee.DepartmentId);
             return View(employee);
         }
 
