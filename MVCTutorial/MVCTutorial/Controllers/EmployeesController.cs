@@ -173,6 +173,19 @@ namespace MVCTutorial.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: Employees/Details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return View(employee);
+        }
+
 
 
     }

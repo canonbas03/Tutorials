@@ -1,0 +1,22 @@
+﻿@model MVCTutorial.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h2>Employee Details</h2>
+
+<div class="card" style="width: 20rem;">
+    <img src="@Model.PhotoPath" class="card-img-top" alt="Employee Photo">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">
+            <strong>Salary:</strong> @Model.Salary <br />
+            <strong>ID:</strong> @Model.Id
+        </p>
+    </div>
+</div>
+
+<br />
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

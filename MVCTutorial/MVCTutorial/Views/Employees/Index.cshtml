@@ -26,6 +26,7 @@
                 <td>@emp.Name</td>
                 <td>@emp.Salary</td>
                 <td>
+                    <a asp-action="Details" asp-route-id="@emp.Id" class="btn btn-info btn-sm">View</a>
                     <a asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-warning btn-sm">Edit</a>
                     <a asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-danger btn-sm">Delete</a>
                 </td>
