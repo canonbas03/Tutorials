@@ -11,5 +11,9 @@ namespace MVCTutorial.Models
         // Path to employee image
         [BindNever]
         public string? PhotoPath { get; set; }
+
+        // New foreign key
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
     }
 }

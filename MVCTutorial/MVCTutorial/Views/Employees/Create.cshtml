@@ -19,6 +19,14 @@
         <label>Employee Photo</label>
         <input type="file" name="photo" class="form-control" />
     </div>
+    <div class="form-group">
+        <label asp-for="DepartmentId"></label>
+        <select asp-for="DepartmentId" asp-items="ViewBag.Departments" class="form-control">
+            <option value="">-- Select Department --</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
 
     <br />
     <button type="submit" class="btn btn-primary">Save</button>

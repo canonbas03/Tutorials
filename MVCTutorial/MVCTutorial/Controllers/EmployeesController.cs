@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MVCTutorial.Data;
 using MVCTutorial.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace MVCTutorial.Controllers
 {
@@ -24,6 +25,7 @@ namespace MVCTutorial.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+            ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name", "Location");
             return View();
         }
 
@@ -79,6 +81,7 @@ namespace MVCTutorial.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name", employee.DepartmentId);
             return View(employee);
         }
 
