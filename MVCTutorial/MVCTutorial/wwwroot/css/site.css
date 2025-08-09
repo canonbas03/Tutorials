@@ -20,3 +20,23 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* wwwroot/css/site.css */
+.neon-button {
+    color: #39ff14; /* Neon green text */
+    background-color: #000; /* Black background */
+    border: 2px solid #39ff14;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
+    transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+    .neon-button:hover {
+        color: #fff;
+        box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 60px #39ff14;
+    }
