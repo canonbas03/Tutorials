@@ -40,3 +40,59 @@ body {
         color: #fff;
         box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14, 0 0 60px #39ff14;
     }
+
+.futuristic-card {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    background: #0f111a; /* dark background */
+    border: 2px solid #00ffff; /* neon cyan border */
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff inset;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    transition: box-shadow 0.3s ease;
+}
+
+.futuristic-card:hover {
+    box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff inset;
+}
+
+.profile-img-futuristic {
+    width: 150px;
+    height: 240px;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+    transition: transform 0.3s ease;
+}
+
+    .profile-img-futuristic:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff inset;
+        width: 300px;
+      
+    }
+
+.profile-info-futuristic {
+    margin-left: 2rem;
+}
+
+    .profile-info-futuristic h2 {
+        font-weight: 700;
+        font-size: 2rem;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        margin-bottom: 0.3rem;
+    }
+
+    .profile-info-futuristic p {
+        font-size: 1.1rem;
+        margin: 0.3rem 0;
+        text-shadow: 0 0 3px #00ffff;
+    }
+
+
+
+
