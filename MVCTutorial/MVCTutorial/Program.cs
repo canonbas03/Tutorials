@@ -35,7 +35,7 @@ namespace MVCTutorial
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Employees}/{action=Index}/{id?}");
+                pattern: "{controller=Employees}/{action=NeonIndex}/{id?}");
 
             app.Run();
         }

@@ -1,20 +1,20 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     margin-bottom: 60px
 }
 
-/* Hide thead scrollbar*/
+    /* Hide thead scrollbar*/
     html::-webkit-scrollbar, body::-webkit-scrollbar {
         display: none;
     }
@@ -58,7 +58,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
-    cursor: pointer;
+    cursor: cell;
     border-radius: 8px;
     box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 40px #39ff14;
     transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -72,17 +72,15 @@ body {
 .futuristic-card {
     display: flex;
     align-items: center;
-    max-width: 1000px;
+    max-width: 100%;
     background: #0f111a;
     border: 2px solid #00ffff;
     border-radius: 12px;
     padding: 1.5rem;
-    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff inset;
-    color: #00ffff;
-    font-family: 'Orbitron', sans-serif;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease-in;
     margin: auto;
-    flex-wrap: wrap; /* so small screens wrap */
+    /*flex-wrap: wrap;*/ /* so small screens wrap */
+    margin: 1rem;
 }
 
     .futuristic-card:hover {
@@ -103,7 +101,6 @@ body {
         transform: scale(1.05);
         box-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff inset;
         width: 300px;
-      
     }
 
 .profile-info-futuristic {
@@ -124,18 +121,13 @@ body {
     }
 
 
-
-    /* Hover glow */
-    .futuristic-card:hover {
-        box-shadow: 0 0 12px #0ff, 0 0 30px #0ffcc;
-    }
-
 .futuristic-row {
     display: flex;
     align-items: center;
     justify-content: space-between; /* push actions to right */
     gap: 20px;
     flex-wrap: nowrap; /* keep all in one row unless forced by media query */
+    width: 100%;
 }
 
 
@@ -144,7 +136,7 @@ body {
     width: 90px;
     height: 90px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 5%;
     border: 2px solid #0ff;
     box-shadow: 0 0 8px #0ff;
 }
@@ -184,7 +176,7 @@ body {
     display: flex;
     gap: 10px;
     min-width: 180px;
-    justify-content: flex-end; /* align right */
+    justify-content: end; /* align right */
 }
 
 /* Neon buttons */
@@ -199,7 +191,7 @@ body {
     text-decoration: none;
     box-shadow: 0 0 8px #0ff;
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
+    cursor: zoom-in;
 }
 
     /* Button hover */
@@ -214,13 +206,25 @@ body {
         border-color: #ff0040;
         color: #ff0040;
         box-shadow: 0 0 8px #ff0040;
+        cursor: not-allowed;
     }
-
         .neon-btn.danger:hover {
             background-color: #ff0040;
             color: #fff;
             box-shadow: 0 0 14px #ff0040, 0 0 28px #ff4c70;
         }
+    /* Warning variant */
+    .neon-btn.warning {
+        border-color: #f9eb34;
+        color: #f9eb34;
+        box-shadow: 0 0 8px #f9eb34;
+        cursor: pointer;
+    }
+    .neon-btn.warning:hover {
+        background-color: #f9eb34;
+        color: black;
+        box-shadow: 0 0 14px #f9eb34, 0 0 28px #f9eb34;
+    }
 
 .name-salary-row {
     display: flex;
@@ -230,8 +234,8 @@ body {
 
 /* Make salary text slightly smaller */
 .salary-text {
-    font-size: 1.1rem;
-    font-weight: 600;
+    /*font-size: 1.1rem;
+    font-weight: 600;*/
 }
 
 
@@ -247,6 +251,3 @@ body {
         margin-top: 10px;
     }
 }
-
-
-
