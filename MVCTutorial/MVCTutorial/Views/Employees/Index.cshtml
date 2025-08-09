@@ -73,31 +73,30 @@
 
 @foreach (var emp in Model)
 {
-    <div class="futuristic-card mb-4">
+    <div class="futuristic-card">
         <div class="futuristic-row">
+            <!-- Photo -->
             <div class="futuristic-photo">
-                @if (!string.IsNullOrEmpty(emp.PhotoPath))
-                {
-                    <img src="@emp.PhotoPath" alt="Employee Photo" />
-                }
-                else
-                {
-                    <div class="no-photo">No Photo</div>
-                }
+                <img src="@emp.PhotoPath" alt="@emp.Name">
             </div>
+
+            <!-- Info -->
             <div class="futuristic-info">
                 <div class="name-salary-row">
-                    <h3 class="neon-text">@emp.Name</h3>
-                    <span class="neon-text salary-text">@emp.Salary.ToString("C")</span>
+                    <h2 class="neon-text">@emp.Name</h2>
+                    <p class="salary-text">@emp.Salary.ToString("C")</p>
                 </div>
             </div>
+
+            <!-- Actions -->
             <div class="futuristic-actions">
-                <a asp-action="Details" asp-route-id="@emp.Id" class="btn neon-btn">View</a>
-                <a asp-action="Edit" asp-route-id="@emp.Id" class="btn neon-btn">Edit</a>
-                <a asp-action="Delete" asp-route-id="@emp.Id" class="btn neon-btn danger">Delete</a>
+                <a asp-action="Details" asp-route-id="@emp.Id" class="neon-btn">View</a>
+                <a asp-action="Edit" asp-route-id="@emp.Id" class="neon-btn">Edit</a>
+                <a asp-action="Delete" asp-route-id="@emp.Id" class="neon-btn danger">Delete</a>
             </div>
         </div>
     </div>
+
 }
 
 
