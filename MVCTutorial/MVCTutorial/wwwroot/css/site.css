@@ -18,8 +18,36 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #0f111a; /* dark futuristic background */
+    background-image: radial-gradient(circle at center, #001f3f, #0f111a); /* subtle gradient */
+    color: #00ffff; /* optional: neon-ish text color */
+    min-height: 100vh; /* ensures it covers the full height */
+    margin: 0;
+    font-family: 'Orbitron', sans-serif; /* if you want that futuristic font */
+    margin-bottom: 60px
 }
+
+/* Hide thead scrollbar*/
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+        display: none;
+    }
+/* Override Bootstrap table text color and background */
+.table {
+    color: #00ffff; /* neon cyan text */
+    background-color: #111827; /* dark background */
+    border-color: #0ff; /* neon border */
+}
+
+    .table th,
+    .table td {
+        border-color: #0ff; /* neon border on cells */
+    }
+
+    /* Optional: hover effect */
+    .table tbody tr:hover {
+        background-color: #0f172a; /* darker blue on hover */
+    }
+
 
 /* wwwroot/css/site.css */
 .neon-button {
