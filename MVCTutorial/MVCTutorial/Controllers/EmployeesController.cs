@@ -161,7 +161,7 @@ namespace MVCTutorial.Controllers
 
                 _context.Update(existingEmployee);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(NeonIndex));
             }
             ViewBag.Departments = new SelectList(_context.Departments, "DepartmentId", "Name", departmentId);
             ViewBag.Roles = new SelectList(_context.Roles.Where(r => r.DepartmentId == departmentId), "RoleId", "Name", employee.RoleId);
