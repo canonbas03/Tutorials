@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MVCTutorial.Models.Employee>
+
+<h1>Welcome to Employee Manager</h1>
+<p>
+    <a asp-action="Create" class="btn neon-button">Add New Employee</a>
+</p>
+
+<h2 class="text-center">List of all employee's</h2>
+@foreach (var emp in Model)
+{
+    <div class="futuristic-card">
+        <div class="futuristic-row">
+           
+            
+                <!-- Photo -->
+                <div class="futuristic-photo">
+                    <img src="@emp.PhotoPath" alt="@emp.Name">
+                </div>
+
+                <!-- Info -->
+                <div class="futuristic-info">
+                    <div class="name-salary-row">
+                        <h2 class="neon-text">@emp.Name</h2>
+                        <h2 class="neon-text">@emp.Salary.ToString("C")</h2>
+                    </div>
+                </div>
+            
+
+            <!-- Actions -->
+            <div class="futuristic-actions">
+                <a asp-action="Details" asp-route-id="@emp.Id" class="neon-btn">View</a>
+                <a asp-action="Edit" asp-route-id="@emp.Id" class="neon-btn warning">Edit</a>
+                <a asp-action="Delete" asp-route-id="@emp.Id" class="neon-btn danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    }

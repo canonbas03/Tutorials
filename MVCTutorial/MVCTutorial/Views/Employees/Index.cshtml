@@ -38,3 +38,66 @@
 
 </table>
 
+@foreach (var emp in Model)
+{
+    <div class="card mb-3" style="max-width: 600px;">
+        <div class="row g-0 align-items-center">
+            <div class="col-auto">
+                @if (!string.IsNullOrEmpty(emp.PhotoPath))
+                {
+                    <img src="@emp.PhotoPath" alt="Employee Photo" class="img-fluid rounded-start" style="width:80px; height:80px; object-fit:cover;" />
+                }
+                else
+                {
+                    <div class="bg-secondary rounded-start d-flex align-items-center justify-content-center" style="width:80px; height:80px;">
+                        <span class="text-white">No Photo</span>
+                    </div>
+                }
+            </div>
+            <div class="col">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="card-title mb-1">@emp.Name</h5>
+                        <p class="card-text mb-1">Salary: @emp.Salary.ToString("C")</p>
+                    </div>
+                    <div>
+                        <a asp-action="Details" asp-route-id="@emp.Id" class="btn btn-info btn-sm me-1">View</a>
+                        <a asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-warning btn-sm me-1">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@foreach (var emp in Model)
+{
+    <div class="futuristic-card">
+        <div class="futuristic-row">
+            <!-- Photo -->
+            <div class="futuristic-photo">
+                <img src="@emp.PhotoPath" alt="@emp.Name">
+            </div>
+
+            <!-- Info -->
+            <div class="futuristic-info">
+                <div class="name-salary-row">
+                    <h2 class="neon-text">@emp.Name</h2>
+                    <p class="salary-text">@emp.Salary.ToString("C")</p>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="futuristic-actions">
+                <a asp-action="Details" asp-route-id="@emp.Id" class="neon-btn">View</a>
+                <a asp-action="Edit" asp-route-id="@emp.Id" class="neon-btn">Edit</a>
+                <a asp-action="Delete" asp-route-id="@emp.Id" class="neon-btn danger">Delete</a>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

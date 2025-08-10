@@ -200,7 +200,12 @@ namespace MVCTutorial.Controllers
             return View(employee);
         }
 
-
+        // GET: Employees
+        public async Task<IActionResult> NeonIndex()
+        {
+            var employees = await _context.Employees.ToListAsync();
+            return View(employees);
+        }
 
     }
 }

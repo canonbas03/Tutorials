@@ -28,6 +28,29 @@
         <p>No department assigned.</p>
     }
 </div>
+<div class="d-flex align-items-center p-3 border rounded" style="max-width: 600px;">
+    <!-- Profile Picture -->
+    <img src="@Model.PhotoPath" alt="Profile Picture"
+         class="rounded-3"
+         style="width: 240px; height: 240px; object-fit: cover;" />
+
+    <!-- Info Section -->
+    <div class="ms-5">
+        <h2>@Model.Name</h2>
+        <p><strong>Age:</strong> 28</p>
+        <p><strong>Department:</strong> @Model.Department?.Name</p>
+    </div>
+</div>
+
+<div class="futuristic-card">
+    <img src="@Model.PhotoPath" alt="Profile Picture" class="profile-img-futuristic" />
+    <div class="profile-info-futuristic">
+        <h2>@Model.Name</h2>
+        <p><strong>Age:</strong> 36</p>
+        <p><strong>Department:</strong> @Model.Department?.Name</p>
+    </div>
+</div>
+
 
 <br />
 
