@@ -211,21 +211,26 @@ namespace MVCTutorial.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // // GET: Employees/Details/5
-        // public async Task<IActionResult> Details(int id)
-        // {
-        //     //var employee = await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
-        //     var employee = await _context.Employees
-        //.Include(e => e.Department)  // Include the related Department data
-        //.FirstOrDefaultAsync(e => e.Id == id);
+        // GET: Employees/Details/5
+        public async Task<IActionResult> Details(int id)
+        {
+            var employee = await _context.Employees
+    .Include(e => e.Role)
+    .ThenInclude(r => r.Department)
+    .FirstOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-        //     if (employee == null)
-        //     {
-        //         return NotFound();
-        //     }
+            // Get DepartmentId from the employee's role
+            int departmentId = _context.Roles
+                .Where(r => r.RoleId == employee.RoleId)
+                .Select(r => r.DepartmentId)
+                .FirstOrDefault();
 
-        //     return View(employee);
-        // }
+            return View(employee);
+        }
 
         // GET: Employees
         public async Task<IActionResult> NeonIndex()
