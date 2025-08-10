@@ -1,15 +1,18 @@
-﻿@* @model MVCTutorial.Models.Employee
+﻿@model MVCTutorial.Models.Employee
 
 <h1>Edit Employee</h1>
 
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="EmployeeId" />
 
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
     </div>
-
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
     <div class="form-group">
         <label asp-for="Salary"></label>
         <input asp-for="Salary" class="form-control" type="text" />
@@ -32,13 +35,20 @@
         <input type="checkbox" class="form-check-input" id="removePhoto" name="removePhoto" />
         <label class="form-check-label" for="removePhoto">Remove Photo</label>
     </div>
-    <div class="form-group">
-        <label asp-for="DepartmentId"></label>
-        <select asp-for="DepartmentId" asp-items="ViewBag.Departments" class="form-control">
-            <option value="">-- Select Department --</option>
-        </select>
-        <span asp-validation-for="DepartmentId" class="text-danger"></span>
-    </div>
+    
+        <div>
+            <label>Department</label>
+            <select id="DepartmentDropdown" name="DepartmentId" class="form-control" asp-items="ViewBag.Departments">
+                <option value="">-- Select Department --</option>
+            </select>
+        </div>
+
+        <div>
+            <label>Role</label>
+            <select id="RoleDropdown" name="RoleId" class="form-control" asp-items="ViewBag.Roles">
+                <option value="">-- Select Role --</option>
+            </select>
+        </div>
 
     <br />
     <button type="submit" class="btn neon-button">Save</button>
@@ -46,4 +56,35 @@
 
 </form>
     <button class="neon-button">Confirm</button>
- *@
+@section Scripts {
+    <script>
+        const deptDropdown = document.getElementById('DepartmentDropdown');
+        const roleDropdown = document.getElementById('RoleDropdown');
+
+        function loadRoles(deptId, selectedRoleId = null) {
+            roleDropdown.innerHTML = '<option value="">-- Select Role --</option>';
+            if (!deptId) return;
+
+            fetch(`@Url.Action("GetRolesByDepartment")?departmentId=${deptId}`)
+                .then(response => response.json())
+                .then(roles => {
+                    roles.forEach(role => {
+                        const option = document.createElement('option');
+                        option.value = role.roleId;
+                        option.textContent = role.name;
+                        if (selectedRoleId && selectedRoleId == role.roleId) {
+                            option.selected = true;
+                        }
+                        roleDropdown.appendChild(option);
+                    });
+                });
+        }
+
+        deptDropdown.addEventListener('change', function () {
+            loadRoles(this.value);
+        });
+
+        // Load roles immediately for the pre-selected department/role
+        loadRoles(deptDropdown.value, '@Model.RoleId');
+    </script>
+}
