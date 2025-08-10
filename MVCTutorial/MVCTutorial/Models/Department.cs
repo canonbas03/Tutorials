@@ -1,4 +1,6 @@
-﻿namespace MVCTutorial.Models
+﻿using System.Data;
+
+namespace MVCTutorial.Models
 {
     public class Department
     {
@@ -7,6 +9,7 @@
         public string Name { get; set; }
         public string? Location { get; set; }
 
-        public ICollection<Employee> Employees { get; set; }
+        public ICollection<Role> Roles { get; set; }
+
     }
 }

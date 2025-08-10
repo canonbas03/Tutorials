@@ -2,40 +2,74 @@
 
 <h1>Create New Employee</h1>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-action="Create" enctype="multipart/form-data" method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
     </div>
 
     <div class="form-group">
         <label asp-for="Salary"></label>
         <input asp-for="Salary" class="form-control" type="text" />
-        <span asp-validation-for="Salary" class="text-danger"></span>
     </div>
-
     <div class="form-group">
         <label>Employee Photo</label>
         <input type="file" name="photo" class="form-control" />
     </div>
-    <div class="form-group">
-        <label asp-for="DepartmentId"></label>
-        <select asp-for="DepartmentId" asp-items="ViewBag.Departments" class="form-control">
+    <div>
+        <label>Department</label>
+        <select id="DepartmentDropdown" name="DepartmentId" class="form-control">
             <option value="">-- Select Department --</option>
+            @foreach (var d in (SelectList)ViewBag.Departments)
+            {
+                <option value="@d.Value">@d.Text</option>
+            }
         </select>
-        <span asp-validation-for="DepartmentId" class="text-danger"></span>
     </div>
 
+    <div>
+        <label>Role</label>
+        <select id="RoleDropdown" name="RoleId" class="form-control">
+            <option value="">-- Select Role --</option>
+        </select>
+    </div>
 
-    <br />
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <!-- Other employee fields -->
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+    <button type="submit">Create</button>
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById('DepartmentDropdown').addEventListener('change', function() {
+            const deptId = this.value;
+            const roleDropdown = document.getElementById('RoleDropdown');
+
+            // Clear current options
+            roleDropdown.innerHTML = '<option value="">-- Select Role --</option>';
+
+            if (!deptId) return;
+
+            fetch(`@Url.Action("GetRolesByDepartment")?departmentId=${deptId}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(roles => {
+                    roles.forEach(role => {
+                        const option = document.createElement('option');
+                        option.value = role.roleId;
+                        option.textContent = role.name;
+                        roleDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching roles:', error);
+                });
+        });
+    </script>
 }
