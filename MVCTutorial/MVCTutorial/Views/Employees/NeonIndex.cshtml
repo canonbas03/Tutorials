@@ -21,7 +21,9 @@
                 <div class="futuristic-info">
                     <div class="name-salary-row">
                         <h2 class="neon-text">@emp.FirstName</h2>
+                        <h2 class="neon-text">@emp.LastName</h2>
                         <h2 class="neon-text">@emp.Salary.ToString("C")</h2>
+                        <h2 class="neon-text">@emp.Role.Name</h2>
                     </div>
                 </div>
             
@@ -29,8 +31,8 @@
             <!-- Actions -->
             <div class="futuristic-actions">
                 <a asp-action="Details" asp-route-id="@emp.EmployeeId" class="neon-btn">View</a>
-                <a asp-action="Edit" asp-route-id="@emp.EmployeeId class="neon-btn warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@emp.EmployeeId class="neon-btn danger">Delete</a>
+                <a asp-action="Edit" asp-route-id="@emp.EmployeeId" class="neon-btn warning">Edit</a>
+                <a asp-action="Delete" asp-route-id="@emp.EmployeeId" class="neon-btn danger">Delete</a>
             </div>
         </div>
     </div>

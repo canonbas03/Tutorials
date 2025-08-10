@@ -147,48 +147,48 @@ namespace MVCTutorial.Controllers
         //     return View(employee);
         // }
 
-        // // GET: Employees/Delete/5
-        // public async Task<IActionResult> Delete(int? id)
-        // {
-        //     if (id == null)
-        //         return NotFound();
+        // GET: Employees/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
 
-        //     var employee = await _context.Employees
-        //         .FirstOrDefaultAsync(m => m.Id == id);
-        //     if (employee == null)
-        //         return NotFound();
+            var employee = await _context.Employees
+                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+            if (employee == null)
+                return NotFound();
 
-        //     return View(employee);
-        // }
+            return View(employee);
+        }
 
-        // // POST: Employees/Delete/5
-        // [HttpPost, ActionName("Delete")]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> DeleteConfirmed(int id)
-        // {
-        //     var employee = await _context.Employees.FindAsync(id);
-        //     if (employee == null)
-        //         return NotFound();
+        // POST: Employees/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
+                return NotFound();
 
-        //     // Remove photo file if not default image
-        //     var photoFileName = Path.GetFileName(employee.PhotoPath);
-        //     var photoPathTrimmed = employee.PhotoPath?.Trim();
+            // Remove photo file if not default image
+            var photoFileName = Path.GetFileName(employee.PhotoPath);
+            var photoPathTrimmed = employee.PhotoPath?.Trim();
 
-        //     if (!string.IsNullOrEmpty(photoPathTrimmed) &&
-        //         !photoPathTrimmed.EndsWith("userPhoto.jpg", StringComparison.OrdinalIgnoreCase))
-        //     {
-        //         var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", photoPathTrimmed.TrimStart('/'));
-        //         if (System.IO.File.Exists(filePath))
-        //         {
-        //             System.IO.File.Delete(filePath);
-        //         }
-        //     }
+            if (!string.IsNullOrEmpty(photoPathTrimmed) &&
+                !photoPathTrimmed.EndsWith("userPhoto.jpg", StringComparison.OrdinalIgnoreCase))
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", photoPathTrimmed.TrimStart('/'));
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
 
-        //     _context.Employees.Remove(employee);
-        //     await _context.SaveChangesAsync();
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
 
-        //     return RedirectToAction(nameof(Index));
-        // }
+            return RedirectToAction(nameof(Index));
+        }
 
         // // GET: Employees/Details/5
         // public async Task<IActionResult> Details(int id)
@@ -209,7 +209,10 @@ namespace MVCTutorial.Controllers
         // GET: Employees
         public async Task<IActionResult> NeonIndex()
         {
-            var employees = await _context.Employees.ToListAsync();
+            var employees = await _context.Employees
+                .Include(e => e.Role)  // Include Role data here
+                .ToListAsync();
+
             return View(employees);
         }
 
