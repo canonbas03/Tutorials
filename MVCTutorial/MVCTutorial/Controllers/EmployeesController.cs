@@ -233,6 +233,7 @@ namespace MVCTutorial.Controllers
         }
 
         // GET: Employees
+        //This initialises neon theme
         public async Task<IActionResult> NeonIndex()
         {
             var employees = await _context.Employees
