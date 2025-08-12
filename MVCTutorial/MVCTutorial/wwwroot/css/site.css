@@ -277,3 +277,41 @@ body {
         margin-top: 10px;
     }
 }
+
+
+.departments-section {
+    
+    background-color: #30e0194c; /* Black background */
+    border: 2px solid #39ff14;
+    border-radius: 4px;
+    box-shadow: 0 0 2px #39ff14, 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14;
+    margin-bottom: 20px;
+        border-radius: 4px;
+}
+    .departments-section.color1 {
+        background-color: #30e0194c;
+        border: 2px solid #39ff14;
+        box-shadow: 0 0 2px #39ff14, 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14;
+        margin-bottom: 20px;
+    }
+
+    .departments-section.color2 {
+        background-color: #194fe04c;
+        border: 2px solid #2ea1ff;
+        box-shadow: 0 0 2px #2ea1ff, 0 0 5px #2ea1ff, 0 0 10px #2ea1ff, 0 0 15px #2ea1ff;
+        margin-bottom: 20px;
+    }
+
+    .departments-section.color3 {
+        background-color: #e030194c;
+        border: 2px solid #ff1439;
+        box-shadow: 0 0 2px #ff1439, 0 0 5px #ff1439, 0 0 10px #ff1439, 0 0 15px #ff1439;
+        margin-bottom: 20px;
+    }
+
+    .departments-section.color4 {
+        background-color: #1919e04c;
+        border: 2px solid #1439ff;
+        box-shadow: 0 0 2px #1439ff, 0 0 5px #1439ff, 0 0 10px #1439ff, 0 0 15px #1439ff;
+        margin-bottom: 20px;
+    }

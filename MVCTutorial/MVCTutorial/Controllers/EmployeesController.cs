@@ -144,7 +144,7 @@ namespace MVCTutorial.Controllers
                 // Handle photo removal or replacement
                 if (removePhoto)
                 {
-                    existingEmployee.PhotoPath = "/images/employees/userPhoto.png";
+                    existingEmployee.PhotoPath = "/images/employees/userPhoto.jpg";
                 }
                 else if (photo != null && photo.Length > 0)
                 {
@@ -236,13 +236,15 @@ namespace MVCTutorial.Controllers
         //This initialises neon theme
         public async Task<IActionResult> NeonIndex()
         {
-            var employees = await _context.Employees
-                .Include(e => e.Role)  // Include Role data here
+
+            var employeesByDept = await _context.Departments
+                .Include(d => d.Roles)
+                    .ThenInclude(r => r.Employees)
                 .ToListAsync();
 
-            return View(employees);
+            return View(employeesByDept);
         }
-        
+
     }
 }
 

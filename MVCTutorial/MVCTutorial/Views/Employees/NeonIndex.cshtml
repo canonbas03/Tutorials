@@ -1,4 +1,11 @@
-﻿@model IEnumerable<MVCTutorial.Models.Employee>
+﻿@model IEnumerable<MVCTutorial.Models.Department>
+@{
+    ViewData["Title"] = "Home";
+}
+@{
+    string[] classes = new[] { "color1", "color2", "color3", "color4" };
+    int i = 0;
+}
 
 <h1>Welcome to Employee Manager</h1>
 <p>
@@ -6,34 +13,45 @@
 </p>
 
 <h2 class="text-center">List of all employee's</h2>
-@foreach (var emp in Model)
+@foreach (var department in Model)
 {
-    <div class="futuristic-card">
-        <div class="futuristic-row">
-           
-            
-                <!-- Photo -->
-                <div class="futuristic-photo">
-                    <img src="@emp.PhotoPath" alt="@emp.FirstName">
-                </div>
+    string cssClass = classes[i % classes.Length];
+    <div class="departments-section @cssClass">
+        @foreach (var role in department.Roles)
+        {
+            @foreach (var emp in role.Employees)
+            {
+                <div class="futuristic-card">
+                    <div class="futuristic-row">
 
-                <!-- Info -->
-                <div class="futuristic-info">
-                    <div class="name-salary-row">
-                        <h2 class="neon-text">@emp.FirstName</h2>
-                        <h2 class="neon-text">@emp.LastName</h2>
-                        <h2 class="neon-text">@emp.Salary.ToString("C")</h2>
-                        <h2 class="neon-text">@emp.Role.Name</h2>
+
+                        <!-- Photo -->
+                        <div class="futuristic-photo">
+                            <img src="@emp.PhotoPath" alt="@emp.FirstName">
+                        </div>
+
+                        <!-- Info -->
+                        <div class="futuristic-info">
+                            <div class="name-salary-row">
+                                <h2 class="neon-text">@emp.FirstName</h2>
+                                <h2 class="neon-text">@emp.LastName</h2>
+                                <h2 class="neon-text">@emp.Salary.ToString("C")</h2>
+                                <h2 class="neon-text">@emp.Role.Name</h2>
+                            </div>
+                        </div>
+
+
+                        <!-- Actions -->
+                        <div class="futuristic-actions">
+                            <a asp-action="Details" asp-route-id="@emp.EmployeeId" class="neon-btn">View</a>
+                            <a asp-action="Edit" asp-route-id="@emp.EmployeeId" class="neon-btn warning">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@emp.EmployeeId" class="neon-btn danger">Delete</a>
+                        </div>
                     </div>
                 </div>
-            
-
-            <!-- Actions -->
-            <div class="futuristic-actions">
-                <a asp-action="Details" asp-route-id="@emp.EmployeeId" class="neon-btn">View</a>
-                <a asp-action="Edit" asp-route-id="@emp.EmployeeId" class="neon-btn warning">Edit</a>
-                <a asp-action="Delete" asp-route-id="@emp.EmployeeId" class="neon-btn danger">Delete</a>
-            </div>
-        </div>
+            }
+        }
     </div>
-    }
+    i++;
+}
+

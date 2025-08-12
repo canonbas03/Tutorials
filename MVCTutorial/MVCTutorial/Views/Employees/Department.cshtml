@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MVCTutorial.Models.Department>
+
+@foreach (var dept in Model)
+{
+    <h2>@dept.Name</h2>
+    <ul>
+        @foreach (var role in dept.Roles)
+        {
+            @foreach (var emp in role.Employees)
+            {
+                <li>@emp.FirstName @emp.LastName (@role.Name)</li>
+            }
+        }
+    </ul>
+}
