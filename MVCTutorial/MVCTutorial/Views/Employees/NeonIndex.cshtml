@@ -10,11 +10,22 @@
 <h1>Welcome to Employee Manager</h1>
 <p>
     <a asp-action="Create" class="btn neon-button">Add New Employee</a>
+    <a asp-action="Department" class="btn neon-button">New Department</a>
+    <a asp-controller="Departments" asp-action="AssignRoles" class="btn neon-button">
+        Assign Roles to Department
+    </a>
 </p>
 
 <h2 class="text-center">List of all employee's</h2>
 @foreach (var department in Model)
 {
+    var totalEmployees = department.Roles.Sum(r => r.Employees.Count);
+    if (string.Equals(department.Name?.Trim(), "Unassigned", StringComparison.OrdinalIgnoreCase)
+        && totalEmployees == 0)
+    {
+        continue; // skip this iteration
+    }
+
     string cssClass = classes[i % classes.Length];
     <div class="departments-section @cssClass">
         @foreach (var role in department.Roles)
@@ -23,8 +34,6 @@
             {
                 <div class="futuristic-card">
                     <div class="futuristic-row">
-
-
                         <!-- Photo -->
                         <div class="futuristic-photo">
                             <div class="hitbox" aria-hidden="true"></div>
@@ -41,7 +50,6 @@
                             </div>
                         </div>
 
-
                         <!-- Actions -->
                         <div class="futuristic-actions">
                             <a asp-action="Details" asp-route-id="@emp.EmployeeId" class="neon-btn">View</a>
@@ -55,4 +63,3 @@
     </div>
     i++;
 }
-

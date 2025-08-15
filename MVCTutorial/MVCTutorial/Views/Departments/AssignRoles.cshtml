@@ -1,0 +1,67 @@
+﻿@model MVCTutorial.Models.AssignRolesVM
+@{
+    ViewData["Title"] = "Assign Roles to Department";
+}
+
+<h2>Assign Roles to Department</h2>
+
+<!-- Department dropdown -->
+<select id="DepartmentDropdown" class="form-select w-50 mb-3">
+    <option value="">-- Select Department --</option>
+    @foreach (var dept in ViewBag.Departments as List<SelectListItem>)
+    {
+        <option value="@dept.Value">@dept.Text</option>
+    }
+</select>
+
+<!-- Roles checkboxes -->
+<form id="RolesForm" method="post" asp-action="AssignRoles">
+    <input type="hidden" asp-for="DepartmentId" id="DepartmentIdHidden" />
+    <div id="RolesCheckboxes" class="mb-3">
+        <!-- Filled dynamically via JS -->
+    </div>
+    <button type="submit" class="btn neon-button">Save Roles</button>
+</form>
+
+<hr />
+
+<!-- Add new role -->
+<form method="post" asp-action="CreateRole">
+    <input type="hidden" name="departmentId" id="DepartmentIdForNewRole" />
+    <div class="input-group mb-3 w-50">
+        <input type="text" name="roleName" class="form-control" placeholder="New Role Name" />
+        <button type="submit" class="btn neon-button">Add Role</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        const deptDropdown = document.getElementById('DepartmentDropdown');
+        const rolesDiv = document.getElementById('RolesCheckboxes');
+        const deptHidden = document.getElementById('DepartmentIdHidden');
+        const deptHiddenNewRole = document.getElementById('DepartmentIdForNewRole');
+
+        deptDropdown.addEventListener('change', function() {
+            const deptId = this.value;
+            rolesDiv.innerHTML = '';
+            deptHidden.value = deptId;
+            deptHiddenNewRole.value = deptId;
+            if (!deptId) return;
+
+                fetch(`@Url.Action("GetRolesByDepartment")?departmentId=${deptId}`)
+        .then(r => r.json())
+        .then(roles => {
+            rolesDiv.innerHTML = '';
+            roles.forEach(role => {
+                const div = document.createElement('div');
+                div.classList.add('form-check');
+                div.innerHTML = `
+                    <input class="form-check-input" type="checkbox" name="SelectedRoleIds" value="${role.roleId}" id="role_${role.roleId}" checked>
+                    <label class="form-check-label" for="role_${role.roleId}">${role.name}</label>
+                `;
+                rolesDiv.appendChild(div);
+            });
+        });
+         });
+    </script>
+}

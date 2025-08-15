@@ -1,15 +1,55 @@
-﻿@model IEnumerable<MVCTutorial.Models.Department>
-
-@foreach (var dept in Model)
-{
-    <h2>@dept.Name</h2>
-    <ul>
-        @foreach (var role in dept.Roles)
-        {
-            @foreach (var emp in role.Employees)
-            {
-                <li>@emp.FirstName @emp.LastName (@role.Name)</li>
-            }
-        }
-    </ul>
+﻿@model DepartmentPageVM
+@{
+    ViewData["Title"] = "Departments";
 }
+
+<h1>Create a New Department</h1>
+<form asp-action="Department" method="post">
+    <div class="form-group">
+        <label asp-for="NewDepartment.Name">Department Name</label>
+        <input asp-for="NewDepartment.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NewDepartment.Location">Location</label>
+        <input asp-for="NewDepartment.Location" class="form-control" />
+    </div>
+    <button type="submit" class="btn neon-button">Create</button>
+</form>
+
+<h1>All Departments</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dep in Model.Departments)
+        {
+            <tr>
+                <td>@dep.Name</td>
+                <td>@dep.Location</td>
+                <td>
+                    @if (!string.Equals(dep.Name?.Trim(), "Unassigned", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <form asp-action="DeleteDepartment" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@dep.DepartmentId" />
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this department?')">
+                                Delete
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Cannot delete</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

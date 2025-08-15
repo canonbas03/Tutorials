@@ -95,11 +95,11 @@ namespace MVCTutorial.Controllers
             int departmentId = employee.Role.DepartmentId;
 
             ViewBag.Departments = new SelectList(
-       _context.Departments,
-       "DepartmentId",
-       "Name",
-       departmentId
-   );
+                                    _context.Departments,
+                                    "DepartmentId",
+                                    "Name",
+                                     departmentId
+                                                 );
             // Populate Roles for that department (pre-select role)
             ViewBag.Roles = new SelectList(
                 _context.Roles.Where(r => r.DepartmentId == departmentId),
@@ -244,6 +244,86 @@ namespace MVCTutorial.Controllers
 
             return View(employeesByDept);
         }
+
+        // GET: Employees/CreateDepartment
+        public async Task<IActionResult> Department()
+        {
+            var vm = new DepartmentPageVM
+            {
+                Departments = await _context.Departments.ToListAsync()
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Department(DepartmentPageVM vm)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(vm.NewDepartment);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Department));
+            }
+            vm.Departments = await _context.Departments.ToListAsync();
+            return View(vm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteDepartment(int id)
+        {
+            var department = await _context.Departments
+                .Include(d => d.Roles)
+                .FirstOrDefaultAsync(d => d.DepartmentId == id);
+
+            if (department == null)
+                return NotFound();
+
+            // Prevent deletion of the "Unassigned" department
+            if (department.Name == "Unassigned")
+            {
+                TempData["ErrorMessage"] = "The 'Unassigned' department cannot be deleted.";
+                return RedirectToAction(nameof(Department));
+            }
+
+            // Find or create "Unassigned" department and role
+            var unassignedDept = await _context.Departments
+                .FirstOrDefaultAsync(d => d.Name == "Unassigned");
+
+            if (unassignedDept == null)
+            {
+                unassignedDept = new Department { Name = "Unassigned", Location = "N/A" };
+                _context.Departments.Add(unassignedDept);
+                await _context.SaveChangesAsync();
+            }
+
+            var unassignedRole = await _context.Roles
+                .FirstOrDefaultAsync(r => r.Name == "Unassigned" && r.DepartmentId == unassignedDept.DepartmentId);
+
+            if (unassignedRole == null)
+            {
+                unassignedRole = new Role { Name = "Unassigned", DepartmentId = unassignedDept.DepartmentId };
+                _context.Roles.Add(unassignedRole);
+                await _context.SaveChangesAsync();
+            }
+
+            // Reassign employees
+            var employeesInDept = _context.Employees
+                .Where(e => department.Roles.Select(r => r.RoleId).Contains(e.RoleId))
+                .ToList();
+
+            foreach (var emp in employeesInDept)
+            {
+                emp.RoleId = unassignedRole.RoleId;
+            }
+
+            _context.Departments.Remove(department);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Department));
+        }
+
+
 
     }
 }

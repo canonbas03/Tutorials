@@ -1,0 +1,9 @@
+﻿// GET: Employees/CreateDepartment
+public async Task<IActionResult> Department()
+{
+    var vm = new DepartmentPageVM
+    {
+        Departments = await _context.Departments.ToListAsync()
+    };
+    return View(vm);
+}
