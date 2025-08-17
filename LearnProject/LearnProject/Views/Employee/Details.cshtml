@@ -1,0 +1,7 @@
+﻿@model LearnProject.Models.Employee
+
+<h1>Employee details:</h1>
+<p>Employee Name: @Model.FirstName @Model.LastName</p>
+<p>Salary: @Model.Salary</p>
+<a asp-action="Edit" asp-route-id = "@Model.EmployeeId">Edit</a>
+<a asp-action="List">Back to list</a>

@@ -1,0 +1,9 @@
+﻿@model LearnProject.Models.Employee
+
+<h1>Are you sure you want to delete @Model.FirstName @Model.LastName</h1>
+<form asp-action = "Delete" method="post">
+    <input type="hidden" asp-for="EmployeeId"/>
+    <button type="submit">Yes, Delete</button>
+    <a asp-action="List">Cancel</a>
+
+</form>

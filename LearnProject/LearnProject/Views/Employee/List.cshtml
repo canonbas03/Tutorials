@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LearnProject.Models.Employee>
+
+<div>
+    Page @ViewBag.CurrentPage of @ViewBag.TotalPages
+</div>
+<div>
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a asp-action="List" asp-route-page="@(ViewBag.CurrentPage - 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-sortOrder="@ViewBag.SortOrder">Previous</a>
+    }
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a asp-action="List" asp-route-page="@(ViewBag.CurrentPage + 1)" asp-route-searchString="@ViewBag.SearchString" asp-route-sortOrder="@ViewBag.SortOrder">Next</a>
+    }
+</div>
+<h1>All employees:</h1>
+<form asp-action="List" method="get">
+    <input type="text" name="searchString" placeholder="Search by name"></input>
+    <input type="hidden" name="sortOrder" value="@ViewBag.Sortorder"/>
+    <button type="submit">Search</button>
+    <p>
+        <a asp-action="List" asp-route-sortOrder="name_desc" asp-route-searchString="@ViewBag.SearchString">Name ↓</a>
+        <a asp-action="List" asp-route-sortOrder="salary" asp-route-searchString="@ViewBag.SearchString">Salary ↑</a>
+        <a asp-action="List" asp-route-sortOrder="salary_desc" asp-route-searchString="@ViewBag.SearchString">Salary ↓</a>
+        <a asp-action="List" asp-route-sortOrder="@(ViewBag.SortOrder == "salary" ? "salary_desc" : "salary")">Salary</a>
+    </p>
+</form>
+<ul>
+    @foreach (var emp in Model)
+    {
+        <li>@emp.FirstName @emp.LastName @emp.Salary</li>
+        <a asp-action="Details" asp-route-id="@emp.EmployeeId">Details</a>
+        <a asp-action="Edit" asp-route-id="@emp.EmployeeId">Edit</a>
+        <a asp-action="Delete" asp-route-id="@emp.EmployeeId">Delete</a>
+    }
+</ul>
+<a asp-action="Add">Add</a>
+
+@* Displays a list of employees passed from the controller. *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @model IEnumerable<LearnProject.Models.Employee>
+
+<h1>List of employees:</h1>
+<ul>
+    @foreach (var emp in Model)
+    {
+        <li>@emp.FirstName @emp.LastName @emp.Salary</li>
+    }
+</ul> *@

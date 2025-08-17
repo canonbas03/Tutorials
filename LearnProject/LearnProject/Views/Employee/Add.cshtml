@@ -1,0 +1,11 @@
+﻿@model LearnProject.Models.Employee
+
+<form asp-action = "Add" method="post">
+    <label>First Name:</label>
+    <input asp-for="@Model.FirstName" />
+    <label>Last Name:</label>
+    <input asp-for = "LastName" />
+    <label>Salary:</label>
+    <input asp-for="Salary" />
+    <button type="submit">Add</button>
+</form>

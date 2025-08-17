@@ -1,0 +1,18 @@
+﻿@model LearnProject.Models.Employee
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for = "EmployeeId"></input>
+    <div>
+<label asp-for="FirstName">First Name</label>
+<input asp-for="FirstName" />
+    </div>
+    <div>
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" />
+    </div>
+    <div>
+        <label asp-for="Salary">Salary</label>
+        <input asp-for="Salary" />
+    </div>
+    <button type="submit">Edit</button>
+</form>
