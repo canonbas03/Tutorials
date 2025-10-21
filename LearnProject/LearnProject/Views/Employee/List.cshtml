@@ -22,7 +22,7 @@
         <a asp-action="List" asp-route-sortOrder="name_desc" asp-route-searchString="@ViewBag.SearchString">Name ↓</a>
         <a asp-action="List" asp-route-sortOrder="salary" asp-route-searchString="@ViewBag.SearchString">Salary ↑</a>
         <a asp-action="List" asp-route-sortOrder="salary_desc" asp-route-searchString="@ViewBag.SearchString">Salary ↓</a>
-        <a asp-action="List" asp-route-sortOrder="@(ViewBag.SortOrder == "salary" ? "salary_desc" : "salary")">Salary</a>
+        <a asp-action="List" asp-route-sortOrder="@(ViewBag.sortOrder == "salary" ? "salary_desc" : "salary")">Salary</a>
     </p>
 </form>
 <ul>
